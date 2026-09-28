@@ -1,0 +1,86 @@
+# =========================================================================
+# FraudWatch - Root .gitignore
+# Covers Java (Maven / Spring Boot), Node.js (React / Vite), IDEs & OS files
+# =========================================================================
+
+# --- Maven & Java Build Output ---
+target/
+**/target/
+build/
+**/build/
+out/
+**/out/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+.mvn/wrapper/maven-wrapper.jar
+
+# --- Node.js & Frontend (React / Vite) ---
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+*.local
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Logs & Temporary Files ---
+logs/
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.iws
+*.ipr
+*.bnd
+
+# --- Eclipse / STS ---
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# --- NetBeans ---
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# --- Visual Studio Code ---
+.vscode/
+*.code-workspace
+
+# --- Operating System Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- Docker / Local DB Storage ---
+mysql-data/
+docker-compose.override.yml

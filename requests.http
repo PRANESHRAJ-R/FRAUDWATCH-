@@ -1,0 +1,66 @@
+### =========================================================================
+### FraudWatch API - Interactive IntelliJ HTTP Client
+### Click the little GREEN PLAY BUTTON (▶) next to any request to execute it!
+### =========================================================================
+
+### 1. View Dashboard Summary
+GET http://localhost:8080/api/dashboard/summary
+Accept: application/json
+
+### 2. View All Accounts & Current Balances
+GET http://localhost:8080/api/accounts
+Accept: application/json
+
+### 3. View All Active Fraud Detection Rules
+GET http://localhost:8080/api/rules
+Accept: application/json
+
+### 4. Create Normal Transaction (Jane Smith sends ₹2,000 to John Doe -> Status: COMPLETED)
+POST http://localhost:8080/api/transactions
+Content-Type: application/json
+
+{
+  "senderAccountId": 2,
+  "receiverAccountId": 1,
+  "amount": 2000.00
+}
+
+### 5. Create Fraud Transaction (Exceeds ₹50,000 Threshold -> Status: FLAGGED)
+POST http://localhost:8080/api/transactions
+Content-Type: application/json
+
+{
+  "senderAccountId": 2,
+  "receiverAccountId": 1,
+  "amount": 55000.00
+}
+
+### 6. View All Transactions
+GET http://localhost:8080/api/transactions
+Accept: application/json
+
+### 7. View Pending Flagged Transactions Waiting for Review
+GET http://localhost:8080/api/reviews/pending
+Accept: application/json
+
+### 8. Approve a Flagged Transaction (Debit sender & Credit receiver now)
+POST http://localhost:8080/api/reviews/8/approve
+Content-Type: application/json
+
+{
+  "reviewer": "ComplianceOfficer",
+  "reason": "Verified user KYC and confirmed high-value transfer authorization"
+}
+
+### 9. Block a Flagged Transaction (Permanently mark BLOCKED)
+POST http://localhost:8080/api/reviews/6/block
+Content-Type: application/json
+
+{
+  "reviewer": "SecurityLead",
+  "reason": "Suspicious rapid velocity activity detected and rejected"
+}
+
+### 10. View Fraud Rules Breakdown / Flagged Counts
+GET http://localhost:8080/api/dashboard/flagged-by-rule
+Accept: application/json
